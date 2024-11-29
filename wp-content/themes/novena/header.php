@@ -25,40 +25,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'novena' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$novena_description = get_bloginfo( 'description', 'display' );
-			if ( $novena_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $novena_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'novena' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<header>
+<header>
 	<div class="header-top-bar">
 		<div class="container">
 			<div class="row align-items-center">
@@ -81,8 +48,8 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">
-				<img src="assets/images/logo.png" alt="" class="img-fluid">
+			<a class="navbar-brand" href="<?php echo site_url(); ?>">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="" class="img-fluid">
 			</a>
 
 			<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
@@ -91,16 +58,24 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarmain">
+				<!-- <?php
+					// wp_nav_menu(
+					// 	array(
+					// 		'theme_location'		=> 'primary-menu', 
+					// 		'menu_class'			=> 'navbar-nav ml-auto', 	
+					// 	)
+					// );
+				?> -->
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+					<li class="nav-item active"><a class="nav-link" href="http://localhost/WP_Novena_Theme/home/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://localhost/WP_Novena_Theme/about/">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://localhost/WP_Novena_Theme/services/">Services</a></li>
 
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown02">
-							<li><a class="dropdown-item" href="department.html">Departments</a></li>
+							<li><a class="dropdown-item" href="http://localhost/WP_Novena_Theme/depatments/">Departments</a></li>
 							<li><a class="dropdown-item" href="department-single.html">Department Single</a></li>
 						</ul>
 					</li>
@@ -109,9 +84,9 @@
 						<a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown03">
-							<li><a class="dropdown-item" href="doctor.html">Doctors</a></li>
+							<li><a class="dropdown-item" href="http://localhost/WP_Novena_Theme/doctors/">Doctors</a></li>
 							<li><a class="dropdown-item" href="doctor-single.html">Doctor Single</a></li>
-							<li><a class="dropdown-item" href="appoinment.html">Appoinment</a></li>
+							<li><a class="dropdown-item" href="http://localhost/WP_Novena_Theme/appoinment/">Appoinment</a></li>
 						</ul>
 					</li>
 
@@ -123,7 +98,7 @@
 							<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+					<li class="nav-item"><a class="nav-link" href="http://localhost/WP_Novena_Theme/contact/">Contact</a></li>
 				</ul>
 			</div>
 		</div>
