@@ -26,6 +26,7 @@
 </section>
 
 <section class="features">
+<?php $options = get_option('novena-options'); ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -34,22 +35,53 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-surgeon-alt"></i>
 						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
-						<a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
+						<span> <?php if($options['features_1_subtitle']){
+							echo $options['features_1_subtitle'];
+						} ?></span>
+						<h4 class="mb-3"><?php if($options['features_1_heading']){
+							echo $options['features_1_heading']; 
+						}?></h4>
+						<p class="mb-4"><?php if($options['features_1_description']){
+							echo $options['features_1_description'];
+						} ?></p>
+						<?php
+							if($options['features_1_btn_text']['url']){
+								?>
+								<a href="<?php echo $options['features_1_btn_text']['url']; ?>" class="btn btn-main btn-round-full"><?php echo $options['features_1_btn_text']['text']; ?></a>
+								<?php
+							}
+						?>
+						
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
 						<div class="feature-icon mb-4">
 							<i class="icofont-ui-clock"></i>
 						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
+						<span> 
+							<?php if($options['features_2_subtitle']){
+								echo $options['features_2_subtitle'];
+							}?>  
+						</span>
+						<h4 class="mb-3"> 
+							<?php 
+							if($options['features_2_heading']){
+								echo $options['features_2_heading']; 
+							}
+							?>
+						 </h4>
 						<ul class="w-hours list-unstyled">
-							<li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-							<li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+							<?php
+								if($options['features_day_time']){
+									$time_days = $options['features_day_time'];
+									foreach($time_days as $time_day){
+										?>
+											<li class="d-flex justify-content-between"><?php echo $time_day['features_day']; ?><span><?php echo $time_day['features_time']; ?></span></li>
+										<?php
+									}
+								}
+								
+							?>
 						</ul>
 					</div>
 				
@@ -57,10 +89,11 @@
 						<div class="feature-icon mb-4">
 							<i class="icofont-support"></i>
 						</div>
-						<span>Emegency Cases</span>
-						<h4 class="mb-3">1-800-700-6200</h4>
-						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+						<span><?php if( $options['features_3_subtitle']){echo $options['features_3_subtitle']; } ?></span>
+						<h4 class="mb-3"><?php if($options['features_3_heading']){echo $options['features_3_heading'];}?></h4>
+						<p><?php if($options['features_3_description']){echo $options['features_3_description'];} ?></p>
 					</div>
+
 				</div>
 			</div>
 		</div>

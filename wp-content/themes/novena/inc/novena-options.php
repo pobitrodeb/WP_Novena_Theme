@@ -39,7 +39,113 @@ CSF::createSection($prefix, array(
             'title'     => __('Header Phone Number', 'novena'), 
             'type'      => 'text',  
         ), 
-    )
+    ),
 ));
+
+// Features Section 
+CSF::createSection($prefix, array(
+    'id'            => 'features', 
+    'title'         => __('Features Section', 'novena'),
+)); 
+
+CSF::createSection($prefix, array(
+    'parent'        => 'features',
+    'title'         => __('Features 1', 'novena'), 
+    'fields'        => array(
+        array(
+            'id'                => 'features_1_subtitle',   
+            'title'             => 'Features Subtitle',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'                => 'features_1_heading',   
+            'title'             => 'Features Heading',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'                => 'features_1_description',   
+            'title'             => 'Features Description',   
+            'type'              => 'textarea', 
+            'placeholder'       => 'Type Features Description', 
+        ), 
+        array(
+            'id'                => 'features_1_btn_text',   
+            'title'             => 'Features Button Text',   
+            'type'              => 'link', 
+            'desc'              => 'Type Features Button Title', 
+        ), 
+    ),
+)); 
+
+
+// Features Section 02
+CSF::createSection($prefix, array(
+    'parent'        => 'features',
+    'title'         => __('Features 2', 'novena'), 
+    'fields'        => array(
+        array(
+            'id'                => 'features_2_subtitle',   
+            'title'             => 'Features 2 Subtitle',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'                => 'features_2_heading',   
+            'title'             => 'Features 2 Heading',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'     => 'features_day_time',
+            'title'  => 'Features Day & Time',
+            'type'   => 'repeater',
+            'fields' => array(
+              array(
+                'id'    => 'features_day',
+                'type'  => 'text',
+                'title' => 'Type Day'
+              ),
+          
+              array(
+                'id'    => 'features_time',
+                'type'  => 'text',
+                'title' => 'Type Time'
+              ),
+          
+            ),
+          ),
+        
+    ),
+)); 
+
+
+// Features Section 03
+CSF::createSection($prefix, array(
+    'parent'        => 'features',
+    'title'         => __('Features 3', 'novena'), 
+    'fields'        => array(
+        array(
+            'id'                => 'features_3_subtitle',   
+            'title'             => 'Features 3 Subtitle',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'                => 'features_3_heading',   
+            'title'             => 'Features 3 Heading',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Features Sub Heading', 
+        ), 
+        array(
+            'id'                => 'features_3_description',   
+            'title'             => 'Features 3 Description',   
+            'type'              => 'textarea', 
+            'placeholder'       => 'Type Features Description', 
+        ), 
+        
+    ),
+)); 
 
 } //closing main class
