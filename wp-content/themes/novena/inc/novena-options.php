@@ -42,6 +42,59 @@ CSF::createSection($prefix, array(
     ),
 ));
 
+// Slider Section
+CSF::createSection($prefix, array(
+    'id'            => 'banner_section', 
+    'title'         => __('Banner Section', 'novena'), 
+));
+
+CSF::createSection($prefix, array(
+    'parent'        => 'banner_section', 
+    'title'         => __('Banner Section Content', 'novena'), 
+    'fields'        => array(
+        array(
+            'id'                => 'banner_sub_heading',   
+            'title'             => 'Banner Sub Heading',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Banner Sub Heading', 
+        ),
+        array(
+            'id'                => 'banner_heading',   
+            'title'             => 'Banner Heading',   
+            'type'              => 'text', 
+            'placeholder'       => 'Type Banner Heading', 
+        ),
+        array(
+            'id'                => 'banner_content',   
+            'title'             => 'Banner Content',   
+            'type'              => 'textarea', 
+            'placeholder'       => 'Type Banner Content', 
+        ),
+        array(
+            'id'                => 'banner_btn',   
+            'title'             => 'Banner Button',   
+            'type'              => 'link', 
+            'add_title'         => 'Add Banner Button',
+        ),
+    )
+));  
+
+// Banner Section Style
+CSF::createSection($prefix, array(
+    'parent'        => 'banner_section', 
+    'title'         => __('Banner Section Style', 'novena'), 
+    'fields'        => array(
+        array(
+            'id'                => 'banner_image',   
+            'title'             => 'Banner Background',   
+            'type'              => 'background', 
+            'desc'              => 'Hero Section Banner Image', 
+            'output'            => '.banner',
+        ),
+        
+    )
+));     
+
 // Features Section 
 CSF::createSection($prefix, array(
     'id'            => 'features', 
