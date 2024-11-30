@@ -31,21 +31,48 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<ul class="top-bar-info list-inline-item pl-0 mb-0">
-						<li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i>support@novena.com</a></li>
-						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address Ta-134/A, New York, USA </li>
+						<?php $options = get_option('novena-options'); ?>
+						<?php 
+							if($options['header_email']){
+								?>
+								<li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i><?php echo $options['header_email'];?></a></li>
+								<?php
+							}
+						?>
+						<?php
+							if($options['header_address']){
+								?>
+								<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i><?php echo $options['header_address']; ?></li>
+								<?php
+							}
+						?>
+						
 					</ul>
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-						<a href="tel:+23-345-67890">
-							<span>Call Now : </span>
-							<span class="h4">823-4565-13456</span>
+						<a href="tel:<?php echo $options['header_phone_text'];?>">
+						<?php
+							if($options['header_phone_text']){
+								?>
+								<span><?php echo $options['header_phone_text']; ?></span>
+								<?php
+							}
+						?>
+							<?php
+							if($options['header_phone_number']){
+								?>
+								<span>+<?php echo $options['header_phone_number'];?></span>
+								<?php
+							}
+						?>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
 			<a class="navbar-brand" href="<?php echo site_url(); ?>">
